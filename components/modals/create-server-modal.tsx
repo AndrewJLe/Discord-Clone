@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { FileUpload } from "@/components/file-upload";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import { useModal } from "@/hooks/use-modal-store";
 import {
     Dialog,
     DialogContent,
@@ -24,7 +25,6 @@ import {
     FormMessage
 
 } from "@/components/ui/form"
-import { useModal } from "@/hooks/use-modal-store";
 
 const formSchema = z.object({
     name: z.string().min(1, {

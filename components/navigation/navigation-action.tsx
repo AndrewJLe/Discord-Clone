@@ -1,6 +1,8 @@
 "use client"
-import { Plus } from "lucide-react"
 
+// Button that allows users to create servers
+
+import { Plus } from "lucide-react"
 import { ActionTooltip } from "@/components/action-tooptip"
 import { useModal } from "@/hooks/use-modal-store";
 

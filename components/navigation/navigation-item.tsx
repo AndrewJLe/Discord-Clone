@@ -20,7 +20,7 @@ export const NavigationItem = ({
     const router = useRouter();
 
     const onClick = () => {
-        router.push(`/servers/${id}`);
+        router.push(`/servers/${id}`); // Navigates to the server's page when the button is clicked.
     }
 
     return (
@@ -45,7 +45,7 @@ export const NavigationItem = ({
                 )}>
                     <Image
                         fill
-                        src={imageUrl}
+                        src={imageUrl} // Server image
                         alt="Channel"
                     />
                 </div>
