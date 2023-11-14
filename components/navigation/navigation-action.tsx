@@ -1,9 +1,12 @@
-"user client"
+"use client"
 import { Plus } from "lucide-react"
 
 import { ActionTooltip } from "@/components/action-tooptip"
+import { useModal } from "@/hooks/use-modal-store";
 
 export const NavigationAction = () => {
+    const { onOpen } = useModal();
+
     return (
         <div>
             <ActionTooltip
@@ -12,6 +15,7 @@ export const NavigationAction = () => {
                 align="center"
             >
                 <button
+                    onClick={() => onOpen("createServer")}
                     className="group flex items-center"
                 >
                     <div className="flex mx-3 h-[48px] w-[48px] rounded-[24px] 
