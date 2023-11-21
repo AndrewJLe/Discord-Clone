@@ -1,13 +1,25 @@
 "use client";
 
-import qs from "query-string"
+import qs from "query-string";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { ServerWithMembersWithProfiles } from "@/types";
 import { useModal } from "@/hooks/use-modal-store";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { UserAvatar } from "@/components/user-avatar";
 import { MemberRole } from "@prisma/client";
-import { ShieldCheck, LucideCrown, LucideUser2, MoreVertical, ShieldQuestion, Check, Gavel, Loader2 } from "lucide-react";
+import {
+    ShieldCheck,
+    LucideCrown,
+    LucideUser2,
+    MoreVertical,
+    ShieldQuestion,
+    Check,
+    Gavel,
+    Loader2
+} from "lucide-react";
+
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -18,16 +30,15 @@ import {
     DropdownMenuSubContent,
     DropdownMenuTrigger,
     DropdownMenuSubTrigger
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
+
 import {
     Dialog,
     DialogContent,
     DialogDescription,
     DialogHeader,
     DialogTitle
-} from "@/components/ui/dialog"
-import axios from "axios";
-import { useRouter } from "next/navigation";
+} from "@/components/ui/dialog";
 
 
 export const MembersModal = () => {
@@ -43,6 +54,28 @@ export const MembersModal = () => {
         "GUEST": <LucideUser2 className="h-4 w-4 ml-2" />,
         "MODERATOR": <ShieldCheck className="h-4 w-4 ml-2" color="lime" strokeWidth={2} />,
         "ADMIN": <LucideCrown className="h-4 w-4 ml-2" color="gold" fill="gold" strokeWidth={2} />
+    }
+
+    const onKick = async (memberId: string) => {
+        try {
+            setLoadingId(memberId);
+            const url = qs.stringifyUrl({
+                url: `/api/members/${memberId}`,
+                query: {
+                    serverId: server?.id,
+                },
+            });
+
+            const response = await axios.delete(url);
+            router.refresh();
+            onOpen("members", { server: response.data });
+
+        } catch (error) {
+            console.log(error);
+
+        } finally {
+            setLoadingId("");
+        }
     }
 
     const onRoleChange = async (memberId: string, role: MemberRole) => {
@@ -139,7 +172,10 @@ export const MembersModal = () => {
 
                                             <DropdownMenuSeparator />
                                             {/* KICK MEMBER */}
-                                            <DropdownMenuItem className="text-rose-500">
+                                            <DropdownMenuItem
+                                                onClick={() => onKick(member.id)}
+                                                className="text-rose-500"
+                                            >
                                                 <Gavel className="h-4 w-4 mr-2" />
                                                 Kick {member.profile.name}
                                             </DropdownMenuItem>
