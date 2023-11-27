@@ -49,13 +49,13 @@ export const MembersModal = () => {
     const { server } = data as { server: ServerWithMembersWithProfiles };
     const isModalOpen = isOpen && type == "members";
 
-
     const roleIconMap = {
         "GUEST": <LucideUser2 className="h-4 w-4 ml-2" />,
         "MODERATOR": <ShieldCheck className="h-4 w-4 ml-2" color="lime" strokeWidth={2} />,
         "ADMIN": <LucideCrown className="h-4 w-4 ml-2" color="gold" fill="gold" strokeWidth={2} />
     }
 
+    // Kick member from server
     const onKick = async (memberId: string) => {
         try {
             setLoadingId(memberId);
@@ -66,7 +66,7 @@ export const MembersModal = () => {
                 },
             });
 
-            const response = await axios.delete(url);
+            const response = await axios.delete(url); // Kick member from server
             router.refresh();
             onOpen("members", { server: response.data });
 
@@ -78,6 +78,7 @@ export const MembersModal = () => {
         }
     }
 
+    // Change member role on server
     const onRoleChange = async (memberId: string, role: MemberRole) => {
         try {
             setLoadingId(memberId);
