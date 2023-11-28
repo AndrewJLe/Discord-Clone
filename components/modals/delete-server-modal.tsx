@@ -15,17 +15,17 @@ import {
 } from "@/components/ui/dialog"
 
 
-export const LeaveServerModal = () => {
+export const DeleteServerModal = () => {
     const { isOpen, onClose, type, data } = useModal();
     const [isLoading, setIsLoading] = useState(false);
     const { server } = data;
-    const isModalOpen = isOpen && type == "leaveServer";
+    const isModalOpen = isOpen && type == "deleteServer";
     const router = useRouter();
 
     const onClick = async () => {
         try {
             setIsLoading(true);
-            await axios.patch(`/api/servers/${server?.id}/leave`)
+            await axios.delete(`/api/servers/${server?.id}`)
             onClose();
             router.refresh();
             router.push("/");
@@ -43,16 +43,18 @@ export const LeaveServerModal = () => {
             <DialogContent className="bg-white text-black p-0 overflow-hidden">
                 <DialogHeader className="pt-8 px-6">
                     <DialogTitle className="text-2xl text-center font-bold">
-                        Leave '{server?.name}'?
+                        Delete '{server?.name}'?
                     </DialogTitle>
                     <DialogDescription
 
                         className="text-center"
                     >
-                        Are you sure you want to leave <span className="font-semibold text-indigo-500">{server?.name}</span>? You won't be able to rejoin this server unless you are re-invited.
+                        Are you sure you want to delete this server?
+                        <br />
+                        <span className="font-semibold text-indigo-500">{server?.name}</span> will be permanently deleted!
                     </DialogDescription>
-
                 </DialogHeader>
+
                 <DialogFooter
                     className="bg-gray-100 px-6 py-4"
                 >
@@ -69,13 +71,11 @@ export const LeaveServerModal = () => {
                         <Button
                             disabled={isLoading}
                             onClick={onClick}
-                            className="bg-rose-500 text-white hover:bg-rose-800"
+                            className="bg-rose-500 text-white hover:bg-rose-800 font-semibold uppercase"
                         >
-                            Leave Server
+                            Delete Server
                         </Button>
-
                     </div>
-
                 </DialogFooter>
 
             </DialogContent>
