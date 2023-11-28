@@ -5,7 +5,8 @@ import { CreateServerModal } from "@/components/modals/create-server-modal"
 import { InviteModal } from "@/components/modals/invite-modal";
 import { EditServerModal } from "@/components/modals/edit-server-modal";
 import { MembersModal } from "@/components/modals/members-modal";
-import { CreateChannelModal } from "../modals/create-channel-modal";
+import { CreateChannelModal } from "@/components/modals/create-channel-modal";
+import { LeaveServerModal } from "@/components/modals/leave-server-modal";
 
 export const ModalProvider = () => {
     // mount check to prevent models from being rendered serverside
@@ -26,6 +27,7 @@ export const ModalProvider = () => {
             <InviteModal />
             <MembersModal />
             <CreateChannelModal />
+            <LeaveServerModal />
         </>
     )
 }
