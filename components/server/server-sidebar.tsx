@@ -1,14 +1,22 @@
-import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
+import { currentProfile } from "@/lib/current-profile";
 import { ChannelType, MemberRole } from "@prisma/client";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
 import { redirect } from "next/navigation";
 import { ServerHeader } from "./server-header";
 import { ServerSearch } from "./server-search";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Hash, LucideCrown, LucideUser2, Mic, ShieldCheck, Video } from "lucide-react";
-import { Separator } from "../ui/separator";
 import { ServerSection } from "./server-section";
 import { ServerChannel } from "./server-channel";
+import { ServerMember } from "./server-member";
+import {
+    Hash,
+    LucideCrown,
+    LucideUser2,
+    Mic,
+    ShieldCheck,
+    Video
+} from "lucide-react";
 
 const channelIconMap = {
     [ChannelType.TEXT]: <Hash className="mr-2 h-4 w-4" />,
@@ -119,7 +127,7 @@ export const ServerSidebar = async ({
                     />
                 </div>
                 <Separator className="bg-zinc-200 dark:bg-zinc-600 rounded-md my-2 " />
-                {/* Render if text channels exist */}
+                {/* Render if TEXT CHANNELS */}
                 {!!textChannels?.length && (
                     <div className="mb-2">
                         <ServerSection
@@ -138,14 +146,14 @@ export const ServerSidebar = async ({
                         ))}
                     </div>
                 )}
-
+                {/* Render if AUDIO CHANNELS */}
                 {!!audioChannels?.length && (
                     <div className="mb-2">
                         <ServerSection
                             label="Audio Channels"
                             role={role}
                             sectionType="channels"
-                            channelType={ChannelType.TEXT}
+                            channelType={ChannelType.AUDIO}
                         />
                         {audioChannels.map((channel) => (
                             <ServerChannel
@@ -157,14 +165,14 @@ export const ServerSidebar = async ({
                         ))}
                     </div>
                 )}
-
+                {/* Render if VIDEO CHANNELS */}
                 {!!videoChannels?.length && (
                     <div className="mb-2">
                         <ServerSection
                             label="Video Channels"
                             role={role}
                             sectionType="channels"
-                            channelType={ChannelType.TEXT}
+                            channelType={ChannelType.VIDEO}
                         />
                         {videoChannels.map((channel) => (
                             <ServerChannel
@@ -172,6 +180,24 @@ export const ServerSidebar = async ({
                                 channel={channel}
                                 server={server}
                                 role={role}
+                            />
+                        ))}
+                    </div>
+                )}
+                {/* Render MEMBERS */}
+                {!!members?.length && (
+                    <div className="mb-2">
+                        <ServerSection
+                            label="Members"
+                            role={role}
+                            sectionType="members"
+                            server={server}
+                        />
+                        {members.map((member) => (
+                            <ServerMember
+                                key={member.id}
+                                member={member}
+                                server={server}
                             />
                         ))}
                     </div>
