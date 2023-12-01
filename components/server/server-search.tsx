@@ -63,8 +63,8 @@ export const ServerSearch = ({
             <>
                 <button
                     onClick={() => setOpen(true)}
-                    className="group px-2 py-2 rounded-md flex items-center gap-x-2 w-full bg-zinc-800
-                hover:bg-zinc-700/10 dark:hover:bg-zinc-700/50 transition">
+                    className="group px-2 py-2 rounded-md flex items-center gap-x-2 w-full bg-zinc-300
+                    hover:bg-zinc-700/10 dark:bg-zinc-900 dark:hover:bg-zinc-900/50 transition">
                     <SearchIcon className="w-4 h-4 text-zinc-500 dark:text-zinc-400" />
                     <p
                         className="font-semibold text-sm text-zinc-500 
