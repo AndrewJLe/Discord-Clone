@@ -58,7 +58,7 @@ export const DeleteChannelModal = () => {
                     >
                         Are you sure you want to delete this channel?
                         <br />
-                        <span className="font-semibold text-indigo-500">#{channel?.name}</span> will be permanently deleted!
+                        <span className="font-semibold text-indigo-500">#{channel?.name.replace(/'/g, "&apos;")}</span> will be permanently deleted!
                     </DialogDescription>
                 </DialogHeader>
 
