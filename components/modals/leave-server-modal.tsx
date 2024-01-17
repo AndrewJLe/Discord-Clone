@@ -43,13 +43,13 @@ export const LeaveServerModal = () => {
             <DialogContent className="bg-white text-black p-0 overflow-hidden">
                 <DialogHeader className="pt-8 px-6">
                     <DialogTitle className="text-2xl text-center font-bold">
-                        Leave '{server?.name}'?
+                        Leave {server?.name}?
                     </DialogTitle>
                     <DialogDescription
 
                         className="text-center"
                     >
-                        Are you sure you want to leave <span className="font-semibold text-indigo-500">{server?.name}</span>? You won't be able to rejoin this server unless you are re-invited.
+                        Are you sure you want to leave <span className="font-semibold text-indigo-500">{server?.name}</span>? You will not be able to rejoin this server unless you are re-invited.
                     </DialogDescription>
 
                 </DialogHeader>
