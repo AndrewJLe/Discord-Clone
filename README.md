@@ -25,6 +25,7 @@ Discord is a popular communication platform designed for creating communities an
 
 ### Login/Authentication
 Securely log in using your Google account with Clerk authentication.
+  ![Login](https://github.com/AndrewJLe/Discord-Clone/blob/main/Demo/Google-Auth.gif)
 
 ### Creating a Server
 Add a server effortlessly to organize your community or group.
