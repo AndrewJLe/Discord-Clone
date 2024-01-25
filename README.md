@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Discord Clone
+
+A Discord clone built with Typescript, Next.JS, Prisma, and Clerk.
+
+**Live Link:** [https://andrewjle-discord-clone.up.railway.app]
+
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+  - [Login/Authentication](#loginauthentication)
+  - [Creating a Server](#creating-a-server)
+  - [Creating a Channel](#creating-a-channel)
+  - [Real Time Messaging](#real-time-messaging)
+  - [Audio/Video Calls](#audiovideo-calls)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+- [Tech Stack](#tech-stack)
+- [Acknowledgments](#acknowledgments)
+
+## Introduction
+
+Discord is a popular communication platform designed for creating communities and connecting people through text, voice, and video chat. It allows users to join servers, each dedicated to a specific topic or interest, where they can engage in real-time conversations, share media, and collaborate on various activities. Discord is widely used by gamers, but its versatility has led to adoption in diverse communities, fostering communication and interaction among users globally.
+
+## Features
+
+### Login/Authentication
+Securely log in using your Google account with Clerk authentication.
+
+### Creating a Server
+  ![Create Server]([https://imgur.com/a/mcjeLTt])
+Add a server effortlessly to organize your community or group.
+
+### Creating a Channel
+  ![Create Channel]([https://imgur.com/a/urL8uiX])
+Establish channels within servers for focused discussions.
+
+### Real Time Messaging
+  ![Real Time Messaging]([https://imgur.com/a/cXFBOAj])
+Experience instant messaging with real-time updates.
+### Audio/Video Calls
+Connect with others through voice and video channels for a more immersive experience.
 
 ## Getting Started
 
-First, run the development server:
+To get started with Discord Clone, simply log in using your Google account.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+No specific installation steps are required as it is a web application. Make sure you have a Google account for authentication.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Typescript
+- Next.JS
+- Prisma (Database solution)
+- Clerk (Authentication)
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Acknowledgments
+- [CodeWithAntonio](https://www.codewithantonio.com/)
