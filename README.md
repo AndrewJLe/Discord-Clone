@@ -27,15 +27,15 @@ Discord is a popular communication platform designed for creating communities an
 Securely log in using your Google account with Clerk authentication.
 
 ### Creating a Server
-  ![Create Server]([https://imgur.com/a/mcjeLTt])
+  ![Create Server]([https://github.com/AndrewJLe/Discord-Clone/blob/main/Demo/Create-Server.gif])
 Add a server effortlessly to organize your community or group.
 
 ### Creating a Channel
-  ![Create Channel]([https://imgur.com/a/urL8uiX])
+  ![Create Channel]([https://github.com/AndrewJLe/Discord-Clone/blob/main/Demo/Create-Channel.gif])
 Establish channels within servers for focused discussions.
 
 ### Real Time Messaging
-  ![Real Time Messaging]([https://imgur.com/a/cXFBOAj])
+  ![Real Time Messaging]([https://github.com/AndrewJLe/Discord-Clone/blob/main/Demo/Real-Time-Updates.gif])
 Experience instant messaging with real-time updates.
 ### Audio/Video Calls
 Connect with others through voice and video channels for a more immersive experience.
